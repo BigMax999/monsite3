@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mon Premier Site</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            margin: 0;
+            padding: 0;
+            transition: margin 0.5s;
+        }
+        .banniere {
+            background-color: #ff4444;
+            color: black;
+            padding: 30px;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+            font-size: 2.5em;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 0px #cc0000;
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .menu-btn {
+            position: fixed;
+            font-size: 30px;
+            cursor: pointer;
+            z-index: 2;
+        }
+        .menu-btn.gauche {
+            left: 20px;
+            top: 20px;
+        }
+        .menu-btn.droite {
+            right: 20px;
+            top: 20px;
+        }
+        .menu-lateral {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            background-color: #333;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+        .menu-lateral.gauche {
+            left: 0;
+        }
+        .menu-lateral.droite {
+            right: 0;
+        }
+        .menu-lateral a {
+            padding: 15px 25px;
+            text-decoration: none;
+            font-size: 20px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+        .menu-lateral a:hover {
+            background-color: #575757;
+        }
+        .contenu {
+            margin: 0;
+            padding: 20px;
+            transition: margin 0.5s;
+        }
+        .boite {
+            border: 2px solid black;
+            padding: 20px;
+            margin: 10px;
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Boutons menu -->
+    <div class="menu-btn gauche" onclick="ouvrirMenu('gauche')">o</div>
+    <div class="menu-btn droite" onclick="ouvrirMenu('droite')">o</div>
+
+    <!-- Menu gauche -->
+    <div class="menu-lateral gauche" id="menuGauche">
+        <a href="#" onclick="fermerMenu('gauche')">&times;</a>
+        <a href="#">Produits</a>
+        <a href="#">Accessoires</a>
+        <a href="#">Carte à l'unité</a>
+    </div>
+
+    <!-- Menu droit -->
+    <div class="menu-lateral droite" id="menuDroite">
+        <a href="#" onclick="fermerMenu('droite')">&times;</a>
+        <a href="#">Mon Compte</a>
+        <a href="#">Parametres</a>
+        <a href="#">Deconnexion</a>
+    </div>
+
+    <!-- Contenu principal -->
+    <div class="contenu" id="contenuPrincipal">
+        <div class="banniere">
+            Bienvenue sur Capskai !
+        </div>
+        
+        <div class="boite">
+            <h2>À propos de moi</h2>
+            <p>Ceci est mon premier site HTML !</p>
+            <p>Je peux écrire ce que je veux ici.</p>
+        </div>
+
+        <div class="boite">
+            <h2>Mes loisirs</h2>
+            <ul>
+                <li>Informatique</li>
+                <li>Sport</li>
+                <li>Musique</li>
+            </ul>
+        </div>
+
+             
+        <br><br>
+        <a href="https://www.google.com">Lien vers Google</a>
+    </div>
+
+    <script>
+        function ouvrirMenu(cote) {
+            if(cote === 'gauche') {
+                document.getElementById("menuGauche").style.width = "250px";
+                document.getElementById("contenuPrincipal").style.marginLeft = "250px";
+            } else {
+                document.getElementById("menuDroite").style.width = "250px";
+                document.getElementById("contenuPrincipal").style.marginRight = "250px";
+            }
+        }
+
+        function fermerMenu(cote) {
+            if(cote === 'gauche') {
+                document.getElementById("menuGauche").style.width = "0";
+                document.getElementById("contenuPrincipal").style.marginLeft = "0";
+            } else {
+                document.getElementById("menuDroite").style.width = "0";
+                document.getElementById("contenuPrincipal").style.marginRight = "0";
+            }
+        }
+    </script>
+</body>
+</html>
